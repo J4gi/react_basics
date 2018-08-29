@@ -1,29 +1,15 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    entry: 'js/app.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'out.js'
-    },
-    mode: "development",
+    mode: 'development',
+    entry: "./js/template.js",
+    output: {  path: path.join(__dirname, "./js/"), filename : 'out.js' },
     watch: true,
-    devtool: "source-map",
     module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [["env", {
-                            targets:
-                                {browsers : ['>1%']}
-                        }], "react"]
-                    }
-                }
-            }
-        ],
-    },
+        rules : [{
+            test: /\.js$/,  exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: { presets: ['es2015', 'react'] }
+        }]
+    }
 };
