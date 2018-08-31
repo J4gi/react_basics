@@ -21,8 +21,9 @@ class TextTyper extends React.Component {
     }, 1000);
   }
 
-  // componentWillUnmount(){
-  // }
+  componentWillUnmount(){
+    clearInterval(this.intervalId);
+  }
 
   render(){
     return <h1>{i}s.: {this.state.text}</h1>
